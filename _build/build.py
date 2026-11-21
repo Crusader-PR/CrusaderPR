@@ -351,7 +351,7 @@ SERVICES_PAGE = page_hero("What We Do", "Services Built To Win", "Outreach, crea
 
 PAGES = {
     "index.html": ("Crusader Public Relations | Outreach, Creative and Digital Strategy",
-                   "Voter contact, creative and digital strategy for campaigns, causes and businesses.", HOME),
+                   "Outreach, creative and digital strategy for campaigns, causes and businesses in any industry.", HOME),
     "services.html": ("What We Do | Crusader Public Relations", "Services from Crusader Public Relations: outreach, creative and digital strategy.", SERVICES_PAGE),
     "about.html": ("About | Crusader Public Relations", "Who is behind Crusader Public Relations.", ABOUT),
     "testimonials.html": ("Testimonials | Crusader Public Relations", "What clients say about Crusader Public Relations.", TESTIMONIALS),
