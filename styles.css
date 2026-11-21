@@ -197,3 +197,4 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.2; margin: 0 0 .8rem;
 .social-icons a { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.08); }
 .social-icons a:hover { background: var(--red); }
 .social-icons svg { width: 19px; height: 19px; fill: #fff; }
+.stat { display: flex; flex-direction: column; align-items: center; gap: .2rem; }
