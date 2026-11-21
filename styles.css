@@ -280,3 +280,31 @@ p, li, figcaption, blockquote, summary, .label { text-wrap: pretty; }
 .tbd-val { color: #c98896; border-bottom: 1px dashed #c98896; }
 .dash-note { font-size: .72rem; opacity: .55; margin: .9rem 0 0; }
 @media (max-width: 860px) { .results-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+/* Philosophy loop */
+.loop { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; counter-reset: none; }
+.loop-step { position: relative; background: var(--cream); border: 1px solid #ece2e0; border-radius: var(--radius); padding: 1.5rem 1.3rem 1.3rem; }
+.loop-step:not(:last-child)::after { content: ""; position: absolute; top: 46px; right: -1.4rem; width: 1.4rem; height: 14px; z-index: 2;
+  background: var(--red); clip-path: polygon(0 35%, 60% 35%, 60% 0, 100% 50%, 60% 100%, 60% 65%, 0 65%); }
+.loop-num { position: absolute; top: 1rem; right: 1.1rem; font-weight: 800; font-size: .8rem; color: #d9b3bb; letter-spacing: .08em; }
+.loop-icon { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: linear-gradient(135deg, var(--red-deep), var(--red)); margin-bottom: .9rem; }
+.loop-icon svg { width: 26px; height: 26px; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.loop-step h3 { margin: 0 0 .3rem; color: var(--red-deep); }
+.loop-step p { margin: 0 0 .7rem; color: var(--muted); font-size: .93rem; }
+.loop-proof { border-top: 1px dashed #e2c3c9; padding-top: .7rem; color: var(--ink) !important; font-weight: 600; font-size: .85rem !important; margin: 0 !important; }
+.loop-proof::before { content: "In practice: "; color: var(--red); }
+.loop-back { margin: 1.2rem 0 0; text-align: center; font-weight: 600; color: var(--red-deep); }
+.loop-back span { display: inline-block; font-size: 1.3rem; margin-right: .3rem; vertical-align: -2px; }
+.industries { margin-top: 2.6rem; text-align: center; }
+.industries h3 { margin: 0 0 1rem; font-size: 1.25rem; }
+.chips.big { justify-content: center; }
+.chips.big li { font-size: .9rem; padding: .45rem 1rem; border-color: #e7c9cf; }
+.philosophy .see-all { display: table; margin: 1.8rem auto 0; }
+@media (max-width: 1000px) {
+  .loop { grid-template-columns: repeat(2, 1fr); }
+  .loop-step:nth-child(2)::after { display: none; }
+}
+@media (max-width: 600px) {
+  .loop { grid-template-columns: 1fr; }
+  .loop-step:not(:last-child)::after { display: block; top: auto; bottom: -1.4rem; right: 50%; transform: translateX(50%) rotate(90deg); }
+}
