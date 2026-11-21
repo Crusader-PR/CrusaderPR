@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Preview build: keep out of search engines until this replaces the live site -->
+<meta name="robots" content="noindex, nofollow">
+<title>Crusader Public Relations | Political Campaign Communication</title>
+<meta name="description" content="Crusader Public Relations delivers voter contact, creative and digital strategy for campaigns, causes and organizations. 30+ federal and 100+ state and local campaigns.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="preview-bar">Preview build. Not the live site.</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">
+      <img src="https://irp.cdn-website.com/555274c7/dms3rep/multi/opt/Untitled+design+-+2024-12-01T231554.836-252w.png" alt="Crusader Public Relations logo" width="56" height="56">
+      <span>Crusader <strong>PR</strong></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" class="nav">
+      <a href="#services">Services</a>
+      <a href="#texting">Texting</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Crusader Public Relations</p>
+      <h1>Leading the charge in political campaign communication.</h1>
+      <p class="lede">From strategy to execution, we build the outreach, creative and digital presence that help candidates and causes connect, engage and win.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+        <a href="#services" class="btn btn-ghost">See our services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof" aria-label="Track record">
+    <div class="wrap proof-inner">
+      <div class="stat"><span class="num">30+</span><span class="label">Federal campaigns</span></div>
+      <div class="stat"><span class="num">100+</span><span class="label">State &amp; local campaigns</span></div>
+      <div class="stat"><span class="num">4¢</span><span class="label">Per text message</span></div>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <div class="wrap">
+      <h2>What we do</h2>
+      <p class="section-lede">Everything a campaign or organization needs to reach people, grouped so it's easy to pick what you need.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>Voter Contact</h3>
+          <p>Reach people directly and measure what lands.</p>
+          <ul>
+            <li>Text messaging (SMS and picture texts)</li>
+            <li>Digital advertising</li>
+            <li>OTT and streaming TV commercials</li>
+            <li>Print and direct mail</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Content &amp; Creative</h3>
+          <p>Professional work produced in-house.</p>
+          <ul>
+            <li>Video studio: filming and editing</li>
+            <li>Graphic design</li>
+            <li>Social media</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Strategy &amp; Digital</h3>
+          <p>The plan and the infrastructure behind it.</p>
+          <ul>
+            <li>Campaign strategy</li>
+            <li>Website design and development</li>
+            <li>Domains, DNS and Google Workspace setup</li>
+            <li>Email sends and tracked links</li>
+            <li>Election Day war room</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="texting" class="section section-dark">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Text messaging</p>
+        <h2>4¢ per message. We do all the work.</h2>
+        <p>We get you approved to send, clean your list for free, send every message and report back on how each send performed.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>Get approved.</strong> We handle federal 10DLC registration.</li>
+        <li><strong>Clean your list.</strong> Free list scrubbing so you only pay to reach real numbers.</li>
+        <li><strong>Send.</strong> SMS or picture texts, written and scheduled with you.</li>
+        <li><strong>Measure.</strong> Full analytics on every send.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="wrap about">
+      <h2>About Crusader</h2>
+      <p class="placeholder">Placeholder: who's behind Crusader, how long you've done this work, and two or three named campaigns or testimonials. Content needed from Brian.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section section-tint">
+    <div class="wrap split">
+      <div>
+        <h2>Ready to make an impact?</h2>
+        <p>Tell us about your campaign or organization and we'll set up a consultation.</p>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.form-note').hidden=false;">
+        <label>Name <input name="name" required autocomplete="name"></label>
+        <label>Email <input name="email" type="email" required autocomplete="email"></label>
+        <label>Phone <input name="phone" type="tel" autocomplete="tel"></label>
+        <label>Message <textarea name="message" rows="4"></textarea></label>
+        <button class="btn btn-primary" type="submit">Send</button>
+        <p class="form-note" hidden>Preview only. This form isn't connected yet.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>© <span id="yr"></span> Crusader Public Relations, LLC</p>
+    <nav><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const t = document.querySelector('.nav-toggle'), n = document.getElementById('nav');
+  t.addEventListener('click', () => { const o = n.classList.toggle('open'); t.setAttribute('aria-expanded', o); });
+  n.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { n.classList.remove('open'); t.setAttribute('aria-expanded', false); }));
+</script>
+</body>
+</html>
