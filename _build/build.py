@@ -187,10 +187,6 @@ HOME = f"""  <section class="hero">
           <a href="services.html" class="btn btn-ghost">See Our Services</a>
         </div>
       </div>
-      <div class="hero-crest">
-        <img src="{LOGO}" alt="" width="360" height="360">
-        <span class="motto">Non Exidet</span>
-      </div>
     </div>
   </section>
 

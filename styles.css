@@ -37,10 +37,14 @@ a { color: var(--red-deep); }
 .hero .btn-primary:hover { background: #ffe9ee; }
 .btn-ghost:hover { background: rgba(255,255,255,.12); }
 
-.hero { color: #fff; background:
-  linear-gradient(105deg, rgba(61,0,13,.94) 0%, rgba(140,0,30,.86) 50%, rgba(198,1,43,.62) 100%),
-  url("https://irp.cdn-website.com/555274c7/dms3rep/multi/opt/pexels-photo-5673510-1920w.jpeg") center/cover; }
-.hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; align-items: center; gap: 2rem; }
+.hero { position: relative; overflow: hidden; color: #fff;
+  background: radial-gradient(120% 140% at 85% 50%, #d4123a 0%, var(--red) 30%, var(--red-deep) 65%, var(--red-dark) 100%); }
+.hero::after { content: ""; position: absolute; top: 50%; right: 4%; width: 560px; height: 560px; transform: translateY(-50%);
+  background: url("https://irp.cdn-website.com/555274c7/dms3rep/multi/opt/Untitled+design+-+2024-12-01T231554.836-1920w.png") center/cover;
+  border-radius: 50%; opacity: .14; mix-blend-mode: luminosity; pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle, #000 55%, transparent 72%); mask-image: radial-gradient(circle, #000 55%, transparent 72%); }
+.hero .wrap { position: relative; z-index: 1; }
+.hero-grid { display: block; }
 .hero-crest { display: grid; justify-items: center; gap: .8rem; }
 .hero-crest img { width: min(300px, 100%); height: auto; aspect-ratio: 1; border-radius: 50%; background: #e9e9e9; border: 6px solid #fff; box-shadow: 0 20px 50px rgba(0,0,0,.35); object-fit: cover; }
 .motto { font-style: italic; letter-spacing: .2em; text-transform: uppercase; font-size: .8rem; opacity: .85; }
@@ -97,9 +101,7 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.2; margin: 0 0 .8rem;
   .cards, .split { grid-template-columns: 1fr; }
   .proof-inner { grid-template-columns: 1fr; gap: 1.2rem; }
   .hero-inner { padding: 4rem 0 1rem; }
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-crest { padding-bottom: 3.5rem; }
-  .hero-crest img { width: 220px; }
+  .hero-inner { padding-bottom: 3.5rem; }
   .brand img { width: 58px; height: 58px; }
   .wordmark span { font-size: 1.2rem; }
 }
@@ -203,7 +205,7 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.2; margin: 0 0 .8rem;
 .hero { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 56px), 0 100%); padding-bottom: 40px; }
 .cta-band { clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 100%); padding-top: 24px; }
 .page-hero { position: relative; overflow: hidden; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), 0 100%); padding-bottom: 24px; }
-.page-hero::after { content: ""; position: absolute; right: -60px; top: 50%; width: 420px; height: 420px; transform: translateY(-50%);
+.page-hero::after { content: ""; position: absolute; right: -60px; top: 50%; width: 420px; height: 420px; transform: translateY(-50%); -webkit-mask-image: radial-gradient(circle, #000 55%, transparent 72%); mask-image: radial-gradient(circle, #000 55%, transparent 72%);
   background: url("https://irp.cdn-website.com/555274c7/dms3rep/multi/opt/Untitled+design+-+2024-12-01T231554.836-1920w.png") center/cover;
   border-radius: 50%; opacity: .1; mix-blend-mode: luminosity; pointer-events: none; }
 .page-hero .wrap { position: relative; z-index: 1; }
@@ -234,3 +236,7 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.2; margin: 0 0 .8rem;
 .more { margin-top: auto; color: var(--red); font-weight: 700; }
 .see-all { margin-top: 1.6rem; }
 @media (max-width: 860px) { .cat-grid { grid-template-columns: 1fr; } }
+
+/* Tablet: watermark stays middle-right */
+@media (max-width: 1100px) { .hero::after { width: 420px; height: 420px; right: -40px; } }
+@media (max-width: 600px) { .hero::after { width: 300px; height: 300px; right: -90px; opacity: .1; } }
