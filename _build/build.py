@@ -75,6 +75,8 @@ def page(title, desc, body, current):
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', e => {{ if (e.key === 'Escape') setMenu(false); }});
   // Service boxes start open on wide screens, collapsed on phones
+  const io = 'IntersectionObserver' in window && new IntersectionObserver(es => es.forEach(e => {{ if (e.isIntersecting) {{ e.target.classList.add('in'); io.unobserve(e.target); }} }}), {{ threshold: .12 }});
+  document.querySelectorAll('.section .wrap, .proof-inner').forEach(el => {{ if (io) {{ el.classList.add('reveal'); io.observe(el); }} }});
   if (window.matchMedia('(min-width: 861px)').matches) document.querySelectorAll('details.svc').forEach(d => d.open = true);
 </script>
 </body>
@@ -113,7 +115,7 @@ def services_html():
 HOME = f"""  <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-inner">
-        <p class="eyebrow">Crusader Public Relations</p>
+        <p class="eyebrow">Trailblazers In Campaign Communication</p>
         <h1>Leading The Charge In Political Campaign Communication</h1>
         <p class="lede">From strategy to execution, we build the outreach, creative and digital presence that help candidates, causes and businesses connect, engage and win.</p>
         <div class="hero-actions">

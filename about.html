@@ -113,6 +113,8 @@
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
   // Service boxes start open on wide screens, collapsed on phones
+  const io = 'IntersectionObserver' in window && new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.section .wrap, .proof-inner').forEach(el => { if (io) { el.classList.add('reveal'); io.observe(el); } });
   if (window.matchMedia('(min-width: 861px)').matches) document.querySelectorAll('details.svc').forEach(d => d.open = true);
 </script>
 </body>

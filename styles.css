@@ -198,3 +198,27 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.2; margin: 0 0 .8rem;
 .social-icons a:hover { background: var(--red); }
 .social-icons svg { width: 19px; height: 19px; fill: #fff; }
 .stat { display: flex; flex-direction: column; align-items: center; gap: .2rem; }
+
+/* ---- Crusader accents: angled edges, forward ribbon, crest watermark, fade-in ---- */
+.hero { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 56px), 0 100%); padding-bottom: 40px; }
+.cta-band { clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 100%); padding-top: 24px; }
+.page-hero { position: relative; overflow: hidden; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), 0 100%); padding-bottom: 24px; }
+.page-hero::after { content: ""; position: absolute; right: -60px; top: 50%; width: 420px; height: 420px; transform: translateY(-50%);
+  background: url("https://irp.cdn-website.com/555274c7/dms3rep/multi/opt/Untitled+design+-+2024-12-01T231554.836-1920w.png") center/cover;
+  border-radius: 50%; opacity: .1; mix-blend-mode: luminosity; pointer-events: none; }
+.page-hero .wrap { position: relative; z-index: 1; }
+
+/* Ribbon under section headings: a forward-pointing banner from the crest's flag */
+.section h2::after { content: ""; display: block; width: 72px; height: 8px; margin-top: .6rem;
+  background: linear-gradient(90deg, var(--red-deep), var(--red));
+  clip-path: polygon(0 0, 88% 0, 100% 50%, 88% 100%, 0 100%, 6% 50%); }
+.section-dark h2::after, .page-hero h2::after { background: #fff; }
+
+/* Gentle fade-in as sections scroll into view */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+@media (max-width: 860px) {
+  .hero { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), 0 100%); }
+  .page-hero::after { width: 260px; height: 260px; right: -80px; }
+}
