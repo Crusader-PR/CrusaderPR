@@ -116,7 +116,8 @@ SERVICES = [
 ]
 
 CONTACT_OPTIONS = ["Text Messaging", "Digital Advertising", "OTT Television Commercials", "Print and Direct Mail",
-                   "Video, Design or Social Media", "Website, Domains or Email", "Campaign Strategy", "Remediation or Emergency Strategy"]
+                   "Video, Design or Social Media", "Website, Domains or Email", "Campaign Strategy",
+                   "Financial Accounting & Reporting", "Election Day Operations (EDO)", "Remediation or Emergency Strategy"]
 
 
 CATEGORIES = [
@@ -140,13 +141,19 @@ CATEGORIES = [
     ]),
     ("strategy", "Strategy & Digital", "The plan and the infrastructure behind it.", [
         ("Campaign Strategy", "A clear, results-driven plan that turns your goals into actions, budgets and deadlines.",
-         ["Message and audience strategy", "Budget and timeline planning", "Election Day war room"]),
+         ["Message and audience strategy", "Budget and timeline planning"]),
         ("Website Design and Development", "Mobile-friendly websites that build trust and turn visitors into donors, volunteers and customers.",
          ["Campaign, organization and business sites", "Donate, volunteer and sign-up forms", "Ongoing updates and support"]),
         ("Domains, Email and Digital Setup", "The behind-the-scenes setup that makes everything else work, done right from day one.",
          ["Domain purchase and DNS", "Google Workspace and professional email", "Email sends with tracked links"]),
         ("Remediation and Emergency Strategy", "When a campaign or business is off track, we step in fast with a clear plan to recover and get you over the finish line.",
          ["Rapid audit of what's working and what isn't", "Emergency outreach and messaging plan", "Hands-on consulting through the finish"]),
+    ]),
+    ("operations", "Campaign Operations", "Finance compliance and Election Day support for candidate committees.", [
+        ("Financial Accounting & Reporting", "Bookkeeping and campaign finance reporting, kept current from the first contribution to the final report.",
+         ["Contribution and expense tracking", "Campaign finance report preparation and filing", "Filing deadline calendar", "Treasurer services", "Budget-to-actual reports for the campaign team"]),
+        ("Election Day Operations (EDO)", "Planning, staffing and coordination for Election Day, run from a central war room.",
+         ["Poll coverage and volunteer scheduling", "Election Day war room with live reporting", "Turnout tracking and final-push texts", "Rapid response to issues at the polls"]),
     ]),
 ]
 
