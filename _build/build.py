@@ -3,7 +3,7 @@ import os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOGO = "https://irp.cdn-website.com/555274c7/dms3rep/multi/opt/Untitled+design+-+2024-12-01T231554.836-1920w.png"
 
-NAV = [("index.html", "Home"), ("services.html", "What We Do"), ("index.html#work", "Our Work"),
+NAV = [("index.html", "Home"), ("services.html", "Services"), ("index.html#work", "Work Samples"),
        ("about.html", "About"), ("testimonials.html", "Testimonials"), ("contact.html", "Contact")]
 
 import hashlib
@@ -270,7 +270,7 @@ def page_hero(eyebrow, h1, lede):
 
 CTA = """  <section class="cta-band">
     <div class="wrap cta-inner">
-      <div><h2>Let's Win Together</h2><p>Book a consultation to talk through your goals.</p></div>
+      <div><h2>Start A Conversation</h2><p>Consultations cover goals, timing and budget.</p></div>
       <a href="contact.html" class="btn btn-light">Book a Consultation</a>
     </div>
   </section>"""
@@ -355,7 +355,7 @@ SERVICES_PAGE = page_hero("What We Do", "Services Built To Win", "Outreach, crea
 PAGES = {
     "index.html": ("Crusader Public Relations | Outreach, Creative and Digital Strategy",
                    "Outreach, creative and digital strategy for campaigns, causes and businesses in any industry.", HOME),
-    "services.html": ("What We Do | Crusader Public Relations", "Services from Crusader Public Relations: outreach, creative and digital strategy.", SERVICES_PAGE),
+    "services.html": ("Services | Crusader Public Relations", "Services from Crusader Public Relations: outreach, creative and digital strategy.", SERVICES_PAGE),
     "about.html": ("About | Crusader Public Relations", "Who is behind Crusader Public Relations.", ABOUT),
     "testimonials.html": ("Testimonials | Crusader Public Relations", "What clients say about Crusader Public Relations.", TESTIMONIALS),
     "contact.html": ("Contact | Crusader Public Relations", "Book a consultation with Crusader Public Relations.", CONTACT),

@@ -337,3 +337,10 @@ p, li, figcaption, blockquote, summary, .label { text-wrap: pretty; }
 .rescue-card h3 { margin: 0 0 .3rem; font-size: 1.25rem; }
 .rescue-card p { margin: 0; opacity: .8; font-size: .93rem; }
 @media (max-width: 760px) { .rescue-card { grid-template-columns: 1fr; } }
+
+/* About: text messaging terms */
+.terms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.term { background: var(--cream); border: 1px solid #ece2e0; border-left: 4px solid var(--red); border-radius: 12px; padding: 1.1rem 1.2rem; }
+.term strong { color: var(--red-deep); }
+.term p { margin: .4rem 0 0; color: var(--muted); }
+@media (max-width: 860px) { .terms-grid { grid-template-columns: 1fr; } }
