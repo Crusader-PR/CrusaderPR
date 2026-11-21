@@ -7,6 +7,9 @@ PHOTO = "https://irp.cdn-website.com/555274c7/dms3rep/multi/opt/pexels-photo-567
 NAV = [("index.html", "Home"), ("index.html#services", "Services"), ("index.html#work", "Our Work"),
        ("about.html", "About"), ("testimonials.html", "Testimonials"), ("contact.html", "Contact")]
 
+import hashlib
+CSS_V = hashlib.md5(open(os.path.join(ROOT, "styles.css"), "rb").read()).hexdigest()[:8]
+
 def page(title, desc, body, current):
     links = "\n".join(
         f'        <a href="{h}"{" aria-current=\"page\"" if h == current else ""}>{t}</a>' for h, t in NAV)
@@ -22,7 +25,7 @@ def page(title, desc, body, current):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v={CSS_V}">
 </head>
 <body>
 
@@ -288,7 +291,7 @@ def preview(out_path):
     ids = {"index.html": "home", "about.html": "about", "testimonials.html": "testimonials", "contact.html": "contact"}
     bodies = "".join(f'<div class="pv-page" id="page-{ids[fn]}">\n{b}\n</div>\n' for fn, (t, d, b) in PAGES.items())
     html = page("Preview | Crusader Public Relations", "", bodies, "")
-    html = html.replace('<link rel="stylesheet" href="styles.css">', "<style>\n" + css + "\n.pv-page{display:none}.pv-page.on{display:block}\n</style>")
+    html = html.replace(f'<link rel="stylesheet" href="styles.css?v={CSS_V}">', "<style>\n" + css + "\n.pv-page{display:none}.pv-page.on{display:block}\n</style>")
     html = html.replace('href="index.html#', 'href="#').replace('href="index.html"', 'href="#page-home"')
     for fn, i in ids.items():
         html = html.replace(f'href="{fn}"', f'href="#page-{i}"')
