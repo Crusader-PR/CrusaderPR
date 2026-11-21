@@ -317,3 +317,18 @@ p, li, figcaption, blockquote, summary, .label { text-wrap: pretty; }
 .rescue h2 { margin: 0 0 .3rem; font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
 .rescue p { margin: 0; opacity: .8; }
 @media (max-width: 860px) { .rescue-inner { grid-template-columns: 1fr; text-align: left; } }
+
+/* Header stands apart once you scroll */
+.site-header { transition: box-shadow .25s, border-color .25s, background .25s; }
+.site-header.scrolled { background: rgba(255,255,255,.96); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border-bottom: 3px solid var(--red); box-shadow: 0 8px 24px rgba(40,0,10,.14); }
+
+/* Industries: icon tiles, four then three */
+.ind-grid { list-style: none; padding: 0; margin: 0 auto; max-width: 900px; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.ind-grid li { flex: 0 0 calc(25% - .75rem); display: flex; flex-direction: column; align-items: center; gap: .6rem; padding: 1.2rem .8rem;
+  background: #fff; border: 1px solid #efdfe2; border-radius: var(--radius); font-weight: 600; font-size: .9rem; text-align: center;
+  transition: transform .2s, box-shadow .2s, border-color .2s; }
+.ind-grid li:hover { transform: translateY(-3px); border-color: var(--red); box-shadow: 0 10px 24px rgba(40,0,10,.08); }
+.ind-icon { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: #fbeef1; }
+.ind-icon svg { width: 24px; height: 24px; fill: none; stroke: var(--red); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 760px) { .ind-grid li { flex-basis: calc(50% - .5rem); } }

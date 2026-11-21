@@ -72,6 +72,9 @@ def page(title, desc, body, current):
 
 <script>
   if (location.hash === '#edit') {{ const s = document.createElement('script'); s.src = 'editor.js?v={ED_V}'; document.body.appendChild(s); }}
+  const hdr = document.querySelector('.site-header');
+  const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 12);
+  addEventListener('scroll', onScroll, {{ passive: true }}); onScroll();
   document.getElementById('yr').textContent = new Date().getFullYear();
   const btn = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
   const setMenu = open => {{ menu.hidden = !open; btn.setAttribute('aria-expanded', open); btn.classList.toggle('open', open); }};

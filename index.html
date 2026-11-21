@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=6ff11ac0">
+<link rel="stylesheet" href="styles.css?v=6f1e6ae2">
 </head>
 <body>
 
@@ -106,9 +106,14 @@
 
       <div class="industries">
         <h3>Born In Campaigns. Built For Any Industry.</h3>
-        <ul class="chips big">
-          <li>Political Campaigns</li><li>Causes &amp; Nonprofits</li><li>Restaurants &amp; Hospitality</li>
-          <li>Events</li><li>Local Business</li><li>Associations</li><li>Healthcare Practices</li>
+        <ul class="ind-grid">
+          <li><span class="ind-icon"><svg viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span>Political Campaigns</li>
+          <li><span class="ind-icon"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></span>Causes &amp; Nonprofits</li>
+          <li><span class="ind-icon"><svg viewBox="0 0 24 24"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 0-3 2.5-3 6h3v12"/></svg></span>Restaurants &amp; Hospitality</li>
+          <li><span class="ind-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4M12 13l1 2 2 .3-1.5 1.4.4 2.1-1.9-1-1.9 1 .4-2.1L9 15.3l2-.3z"/></svg></span>Events</li>
+          <li><span class="ind-icon"><svg viewBox="0 0 24 24"><path d="M4 10v10h16V10M3 10l2-6h14l2 6zM9 20v-5h6v5"/></svg></span>Local Business</li>
+          <li><span class="ind-icon"><svg viewBox="0 0 24 24"><path d="M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 20a6 6 0 0 1 12 0M17 11a2.5 2.5 0 1 0 0-5M21 20a5 5 0 0 0-4-4.9"/></svg></span>Associations</li>
+          <li><span class="ind-icon"><svg viewBox="0 0 24 24"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></span>Healthcare Practices</li>
         </ul>
       </div>
       <a href="services.html" class="btn btn-primary see-all">See All Services</a>
@@ -204,6 +209,9 @@
 
 <script>
   if (location.hash === '#edit') { const s = document.createElement('script'); s.src = 'editor.js?v=6bb06924'; document.body.appendChild(s); }
+  const hdr = document.querySelector('.site-header');
+  const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 12);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
   document.getElementById('yr').textContent = new Date().getFullYear();
   const btn = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
   const setMenu = open => { menu.hidden = !open; btn.setAttribute('aria-expanded', open); btn.classList.toggle('open', open); };
