@@ -6,7 +6,7 @@
 <!-- Preview build: keep out of search engines until this replaces the live site -->
 <meta name="robots" content="noindex, nofollow">
 <title>Contact | Crusader Public Relations</title>
-<meta name="description" content="Crusader Public Relations delivers voter contact, creative and digital strategy for campaigns, causes and organizations. 30+ federal and 100+ state and local campaigns.">
+<meta name="description" content="Book a consultation with Crusader Public Relations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -18,35 +18,43 @@
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a href="index.html#top" class="brand">
+    <a href="index.html" class="brand">
       <img src="https://irp.cdn-website.com/555274c7/dms3rep/multi/opt/Untitled+design+-+2024-12-01T231554.836-1920w.png" alt="Crusader Public Relations logo" width="76" height="76">
       <span class="wordmark"><span>Crusader</span><small>Public Relations</small></span>
     </a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
-    <nav id="nav" class="nav">
-      <a href="index.html#services">Services</a>
-      <a href="index.html#work">Our Work</a>
-      <a href="index.html#texting">Texting</a>
-      <a href="index.html#about">About</a>
-      <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
-    </nav>
+    <div class="header-actions">
+      <a href="contact.html" class="btn btn-primary btn-cta">Book a Consultation</a>
+      <button class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
+  <nav id="menu" class="menu" hidden>
+    <div class="wrap menu-inner">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#work">Our Work</a>
+        <a href="about.html">About</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+    </div>
+  </nav>
 </header>
 
-<main id="top">
+<main>
   <section class="page-hero">
     <div class="wrap">
       <p class="eyebrow">Contact</p>
-      <h1>Let's talk about your campaign.</h1>
+      <h1>Let's Talk About Your Goals</h1>
       <p class="lede">Share a few details and we'll reach out to set up a consultation.</p>
     </div>
   </section>
   <section class="section">
     <div class="wrap split">
       <div class="contact-aside">
-        <h2>What happens next</h2>
-        <ol class="steps dark">
-          <li><strong>We review your note</strong> and look at your race or organization.</li>
+        <h2>What Happens Next</h2>
+        <ol class="steps">
+          <li><strong>We review your note</strong> and look at your race, cause or business.</li>
           <li><strong>We set up a call</strong> to talk through goals, timing and budget.</li>
           <li><strong>You get a plan</strong> with the services that fit and clear pricing.</li>
         </ol>
@@ -55,12 +63,19 @@
         <label>Name <input name="name" required autocomplete="name"></label>
         <label>Email <input name="email" type="email" required autocomplete="email"></label>
         <label>Phone <input name="phone" type="tel" autocomplete="tel"></label>
-        <label>Campaign or organization <input name="org" autocomplete="organization"></label>
-        <label>What do you need help with?
+        <label>Campaign, Organization or Business <input name="org" autocomplete="organization"></label>
+        <label>What Do You Need Help With?
           <select name="interest">
-            <option>Text messaging</option><option>Digital advertising</option><option>OTT / streaming TV</option>
-            <option>Print and direct mail</option><option>Video or design</option><option>Website, domains or email</option>
-            <option>Campaign strategy</option><option>Not sure yet</option>
+            <option>Text Messaging</option>
+            <option>Digital Advertising</option>
+            <option>Website Design and Development</option>
+            <option>OTT Television Commercials</option>
+            <option>Social Media</option>
+            <option>Video Studio Filming and Editing</option>
+            <option>Graphic Design</option>
+            <option>Print and Direct Mail Services</option>
+            <option>Campaign Strategy</option>
+            <option>Not sure yet</option>
           </select>
         </label>
         <label>Message <textarea name="message" rows="4"></textarea></label>
@@ -73,16 +88,24 @@
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <p>© <span id="yr"></span> Crusader Public Relations, LLC</p>
-    <nav><a href="index.html#services">Services</a><a href="index.html#about">About</a><a href="contact.html">Contact</a></nav>
+    <div>
+      <p class="footer-brand">Crusader Public Relations, LLC</p>
+      <p class="social">YouTube · TikTok · Instagram · Facebook <em>(links to come)</em></p>
+    </div>
+    <nav><a href="index.html#services">Services</a><a href="about.html">About</a><a href="testimonials.html">Testimonials</a><a href="contact.html">Contact</a></nav>
   </div>
+  <div class="wrap legal">© <span id="yr"></span> Crusader Public Relations, LLC</div>
 </footer>
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-  const t = document.querySelector('.nav-toggle'), n = document.getElementById('nav');
-  t.addEventListener('click', () => { const o = n.classList.toggle('open'); t.setAttribute('aria-expanded', o); });
-  n.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { n.classList.remove('open'); t.setAttribute('aria-expanded', false); }));
+  const btn = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
+  const setMenu = open => { menu.hidden = !open; btn.setAttribute('aria-expanded', open); btn.classList.toggle('open', open); };
+  btn.addEventListener('click', () => setMenu(menu.hidden));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  // Service boxes start open on wide screens, collapsed on phones
+  if (window.matchMedia('(min-width: 861px)').matches) document.querySelectorAll('details.svc').forEach(d => d.open = true);
 </script>
 </body>
 </html>

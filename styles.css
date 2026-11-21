@@ -20,18 +20,14 @@ a { color: var(--red-deep); }
 .preview-bar { background: #ffd54a; color: #3a2e00; text-align: center; font-size: .8rem; font-weight: 600; padding: .35rem; }
 
 /* Header: white background so the logo stays visible */
-.site-header { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid #e6e8ee; }
+.site-header { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid #eee3e5; }
+.header-inner { position: relative; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .6rem 0; }
 .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
 .brand img { width: 76px; height: 76px; mix-blend-mode: multiply; }
 .wordmark { display: flex; flex-direction: column; line-height: 1.05; }
 .wordmark span { color: var(--red); font-weight: 800; font-size: 1.5rem; letter-spacing: -.01em; }
 .wordmark small { color: var(--ink); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .18em; margin-top: .2rem; }
-.nav { display: flex; align-items: center; gap: 1.6rem; }
-.nav a { text-decoration: none; font-weight: 600; font-size: .95rem; }
-.nav a:not(.btn) { color: var(--ink); }
-.nav a:not(.btn):hover { color: var(--red); }
-.nav-toggle { display: none; background: none; border: 1px solid #cfd3dc; border-radius: 8px; padding: .4rem .8rem; font: inherit; }
 
 .btn { display: inline-block; padding: .75rem 1.4rem; border-radius: 999px; font-weight: 700; text-decoration: none; border: 2px solid transparent; cursor: pointer; font-family: inherit; font-size: .95rem; }
 .btn-primary { background: var(--red); color: #fff !important; }
@@ -96,9 +92,6 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.2; margin: 0 0 .8rem;
 .site-footer a { color: #fff; text-decoration: none; }
 
 @media (max-width: 860px) {
-  .nav-toggle { display: block; }
-  .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; background: #fff; padding: 1rem 4%; border-bottom: 1px solid #e6e8ee; gap: 1rem; }
-  .nav.open { display: flex; }
   .site-header { position: sticky; }
   .header-inner { position: relative; }
   .cards, .split { grid-template-columns: 1fr; }
@@ -143,4 +136,57 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.2; margin: 0 0 .8rem;
   .work-grid { grid-template-columns: 1fr; }
   .work-wide { grid-column: auto; }
   .work-media.tall { aspect-ratio: 16/9; height: auto; min-height: 0; }
+}
+
+/* Menu: same on every screen size, opens as a panel so the header never shifts */
+.header-actions { display: flex; align-items: center; gap: .8rem; }
+.menu-btn { width: 46px; height: 46px; display: grid; place-content: center; gap: 5px; background: #fff; border: 1px solid #e1d6d8; border-radius: 10px; cursor: pointer; }
+.menu-btn span { display: block; width: 22px; height: 2.5px; background: var(--red); border-radius: 2px; transition: transform .2s, opacity .2s; }
+.menu-btn.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.menu-btn.open span:nth-child(2) { opacity: 0; }
+.menu-btn.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+.menu { position: absolute; top: 100%; left: 0; right: 0; background: #fff; border-bottom: 3px solid var(--red); box-shadow: 0 18px 30px rgba(40,0,10,.12); }
+.menu-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: .2rem 2rem; padding: 1.2rem 0 1.6rem; }
+.menu a { padding: .7rem 0; border-bottom: 1px solid #f1e8ea; text-decoration: none; color: var(--ink); font-weight: 600; }
+.menu a:hover, .menu a[aria-current] { color: var(--red); }
+
+/* Metrics */
+.proof-inner { grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+.stat.tbd .num { border-bottom: 2px dashed #e2a3b0; color: #c98896; display: inline-block; min-width: 2.5ch; }
+.tbd-note { font-size: .78rem; color: var(--muted); text-align: center; margin: -1rem auto 1.2rem; }
+
+/* Services accordion */
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; align-items: start; }
+.svc { background: var(--cream); border: 1px solid #ece2e0; border-left: 4px solid var(--red); border-radius: 12px; }
+.svc summary { list-style: none; cursor: pointer; padding: 1.1rem 1.2rem; font-weight: 700; color: var(--red-deep); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.svc summary::-webkit-details-marker { display: none; }
+.svc summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--red); transition: transform .2s; }
+.svc[open] summary::after { transform: rotate(45deg); }
+.svc-body { padding: 0 1.2rem 1.2rem; }
+.svc-body p { margin: 0 0 .6rem; color: var(--muted); }
+.svc-body ul { margin: 0; padding-left: 1.1rem; }
+.svc-body li { margin: .25rem 0; }
+
+/* Team + testimonials */
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.member { background: #fff; border-radius: var(--radius); padding: 1.6rem; text-align: center; box-shadow: 0 4px 18px rgba(40,0,10,.06); }
+.avatar { width: 110px; height: 110px; border-radius: 50%; margin: 0 auto 1rem; background: linear-gradient(135deg, var(--red-deep), var(--red)); }
+.member h3 { margin: 0; }
+.role { color: var(--red); font-weight: 600; margin: .2rem 0 .6rem; }
+.quote-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+.quote { margin: 0; background: var(--cream); border-radius: var(--radius); padding: 1.8rem; border-top: 4px solid var(--red); }
+.quote blockquote { margin: 0 0 1rem; font-size: 1.1rem; font-weight: 600; }
+.quote figcaption { color: var(--muted); font-size: .9rem; }
+.quote figcaption strong { display: block; color: var(--ink); }
+.page-hero { background: linear-gradient(105deg, var(--red-dark), var(--red-deep) 60%, var(--red)); }
+
+.footer-brand { color: #fff; font-weight: 700; margin: 0 0 .3rem; }
+.social { margin: 0; font-size: .85rem; }
+.legal { border-top: 1px solid rgba(255,255,255,.1); padding: 1rem 0 1.4rem; font-size: .8rem; }
+
+@media (max-width: 860px) {
+  .btn-cta { display: none; }
+  .menu-inner { grid-template-columns: 1fr; }
+  .proof-inner { grid-template-columns: repeat(2, 1fr); }
+  .svc-grid, .team-grid, .quote-grid { grid-template-columns: 1fr; }
 }
