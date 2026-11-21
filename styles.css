@@ -222,3 +222,15 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.2; margin: 0 0 .8rem;
   .hero { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), 0 100%); }
   .page-hero::after { width: 260px; height: 260px; right: -80px; }
 }
+
+/* Homepage category cards linking to the services page */
+.cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.cat-card { display: flex; flex-direction: column; background: var(--cream); border: 1px solid #ece2e0; border-top: 4px solid var(--red); border-radius: var(--radius); padding: 1.6rem; text-decoration: none; color: var(--ink); transition: transform .2s, box-shadow .2s; }
+.cat-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(40,0,10,.1); }
+.cat-card h3 { margin: 0 0 .3rem; color: var(--red-deep); }
+.cat-card p { margin: 0 0 1rem; color: var(--muted); }
+.chips { list-style: none; padding: 0; margin: 0 0 1.2rem; display: flex; flex-wrap: wrap; gap: .4rem; }
+.chips li { background: #fff; border: 1px solid #ecd9dd; border-radius: 999px; padding: .25rem .7rem; font-size: .82rem; }
+.more { margin-top: auto; color: var(--red); font-weight: 700; }
+.see-all { margin-top: 1.6rem; }
+@media (max-width: 860px) { .cat-grid { grid-template-columns: 1fr; } }

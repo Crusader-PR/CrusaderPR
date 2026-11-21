@@ -4,7 +4,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOGO = "https://irp.cdn-website.com/555274c7/dms3rep/multi/opt/Untitled+design+-+2024-12-01T231554.836-1920w.png"
 PHOTO = "https://irp.cdn-website.com/555274c7/dms3rep/multi/opt/pexels-photo-5673510-1920w.jpeg"
 
-NAV = [("index.html", "Home"), ("index.html#services", "Services"), ("index.html#work", "Our Work"),
+NAV = [("index.html", "Home"), ("services.html", "What We Do"), ("index.html#work", "Our Work"),
        ("about.html", "About"), ("testimonials.html", "Testimonials"), ("contact.html", "Contact")]
 
 import hashlib
@@ -105,6 +105,67 @@ SERVICES = [
 CONTACT_OPTIONS = ["Text Messaging", "Digital Advertising", "OTT Television Commercials", "Print and Direct Mail",
                    "Video, Design or Social Media", "Website, Domains or Email", "Campaign Strategy"]
 
+
+CATEGORIES = [
+    ("outreach", "Voter & Customer Outreach", "Reach people directly and measure what lands.", [
+        ("Text Messaging", "Targeted, compliant SMS and picture texts that drive turnout, engagement and fundraising. We handle the whole process so you only approve the message.",
+         ["4¢ per message", "Federal 10DLC registration handled for you", "Free list scrubbing so you only pay for real numbers", "Full analytics on every send"]),
+        ("Digital Advertising", "Precision-targeted ads that put your message in front of the right voters or customers wherever they spend time online.",
+         ["Search, social and display placements", "Targeting by district, geography and demographic", "Ongoing optimization and performance reporting"]),
+        ("OTT Television Commercials", "Streaming TV ads that reach cord-cutters on the platforms they actually watch, targeted far more tightly than broadcast.",
+         ["Spots produced in our own studio", "Targeted by geography and audience", "Delivery and completion reporting"]),
+        ("Print and Direct Mail", "Persuasive, high-quality pieces delivered straight to voters' and customers' hands.",
+         ["Design, print and mail in one place", "Targeted mail lists", "Postcards, mailers, door hangers and more"]),
+    ]),
+    ("creative", "Creative & Content", "Professional work produced in-house.", [
+        ("Video Studio: Filming and Editing", "Our in-house studio produces professional video that captures attention, from a 15-second social clip to a full TV spot.",
+         ["Filming in studio or on location", "Editing for TV, streaming and social", "Explainer, testimonial and announcement videos"]),
+        ("Graphic Design", "Eye-catching visuals that make your brand recognizable everywhere it shows up.",
+         ["Logos and brand kits", "Flyers, signs, mailers and handouts", "Digital ads and social graphics"]),
+        ("Social Media", "Consistent, on-message social campaigns that keep you in front of your audience between the big moments.",
+         ["Platform setup and management", "Content calendars and posting", "Paid social campaigns"]),
+    ]),
+    ("strategy", "Strategy & Digital", "The plan and the infrastructure behind it.", [
+        ("Campaign Strategy", "A clear, results-driven plan that turns your goals into actions, budgets and deadlines.",
+         ["Message and audience strategy", "Budget and timeline planning", "Election Day war room"]),
+        ("Website Design and Development", "Mobile-friendly websites that build trust and turn visitors into donors, volunteers and customers.",
+         ["Campaign, organization and business sites", "Donate, volunteer and sign-up forms", "Ongoing updates and support"]),
+        ("Domains, Email and Digital Setup", "The behind-the-scenes setup that makes everything else work, done right from day one.",
+         ["Domain purchase and DNS", "Google Workspace and professional email", "Email sends with tracked links"]),
+    ]),
+]
+
+def home_services_html():
+    out = []
+    for cid, name, lede, svcs in CATEGORIES:
+        chips = "".join(f"<li>{n.split(':')[0]}</li>" for n, _, _ in svcs)
+        out.append(f"""        <a class="cat-card" href="services.html#{cid}">
+          <h3>{name}</h3>
+          <p>{lede}</p>
+          <ul class="chips">{chips}</ul>
+          <span class="more">Learn more →</span>
+        </a>""")
+    return "\n".join(out)
+
+def services_page_html():
+    out = []
+    for i, (cid, name, lede, svcs) in enumerate(CATEGORIES):
+        cards = "".join(f"""
+          <details class="svc">
+            <summary>{n}</summary>
+            <div class="svc-body"><p>{d}</p><ul>{"".join(f"<li>{x}</li>" for x in items)}</ul></div>
+          </details>""" for n, d, items in svcs)
+        tint = " section-tint" if i % 2 else ""
+        out.append(f"""  <section id="{cid}" class="section{tint}">
+    <div class="wrap">
+      <h2>{name}</h2>
+      <p class="section-lede">{lede}</p>
+      <div class="svc-grid">{cards}
+      </div>
+    </div>
+  </section>""")
+    return "\n".join(out)
+
 def services_html():
     out = []
     for name, lede, items in SERVICES:
@@ -123,7 +184,7 @@ HOME = f"""  <section class="hero">
         <p class="lede">From strategy to execution, we build the outreach, creative and digital presence that help candidates, causes and businesses connect, engage and win.</p>
         <div class="hero-actions">
           <a href="contact.html" class="btn btn-light">Book a Consultation</a>
-          <a href="#services" class="btn btn-ghost">See Our Services</a>
+          <a href="services.html" class="btn btn-ghost">See Our Services</a>
         </div>
       </div>
       <div class="hero-crest">
@@ -147,10 +208,11 @@ HOME = f"""  <section class="hero">
   <section id="services" class="section">
     <div class="wrap">
       <h2>What We Do</h2>
-      <p class="section-lede">Everything a campaign, cause or business needs to reach people. Tap a category to see what's included.</p>
-      <div class="svc-grid">
-{services_html()}
+      <p class="section-lede">Everything a campaign, cause or business needs to reach people.</p>
+      <div class="cat-grid">
+{home_services_html()}
       </div>
+      <a href="services.html" class="btn btn-primary see-all">See All Services</a>
     </div>
   </section>
 
@@ -277,9 +339,12 @@ CONTACT = page_hero("Contact", "Let's Talk About Your Goals", "Share a few detai
     </div>
   </section>"""
 
+SERVICES_PAGE = page_hero("What We Do", "Services Built To Win", "Outreach, creative and digital strategy for campaigns, causes and businesses, all under one roof.") + "\n" + services_page_html() + "\n" + CTA
+
 PAGES = {
     "index.html": ("Crusader Public Relations | Political Campaign Communication",
                    "Voter contact, creative and digital strategy for campaigns, causes and businesses.", HOME),
+    "services.html": ("What We Do | Crusader Public Relations", "Services from Crusader Public Relations: outreach, creative and digital strategy.", SERVICES_PAGE),
     "about.html": ("About | Crusader Public Relations", "Who is behind Crusader Public Relations.", ABOUT),
     "testimonials.html": ("Testimonials | Crusader Public Relations", "What clients say about Crusader Public Relations.", TESTIMONIALS),
     "contact.html": ("Contact | Crusader Public Relations", "Book a consultation with Crusader Public Relations.", CONTACT),
@@ -288,7 +353,7 @@ PAGES = {
 def preview(out_path):
     """One self-contained file holding every page, for previewing without a web server."""
     css = open(os.path.join(ROOT, "styles.css")).read()
-    ids = {"index.html": "home", "about.html": "about", "testimonials.html": "testimonials", "contact.html": "contact"}
+    ids = {"index.html": "home", "services.html": "services", "about.html": "about", "testimonials.html": "testimonials", "contact.html": "contact"}
     bodies = "".join(f'<div class="pv-page" id="page-{ids[fn]}">\n{b}\n</div>\n' for fn, (t, d, b) in PAGES.items())
     html = page("Preview | Crusader Public Relations", "", bodies, "")
     html = html.replace(f'<link rel="stylesheet" href="styles.css?v={CSS_V}">', "<style>\n" + css + "\n.pv-page{display:none}.pv-page.on{display:block}\n</style>")
