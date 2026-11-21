@@ -56,11 +56,15 @@ def page(title, desc, body, current):
   <div class="wrap footer-inner">
     <div>
       <p class="footer-brand">Crusader Public Relations, LLC</p>
-      <p class="social">YouTube · TikTok · Instagram · Facebook <em>(links to come)</em></p>
+      <p class="legal-line">© <span id="yr"></span> Crusader Public Relations, LLC. All rights reserved.</p>
     </div>
-    <nav><a href="index.html#services">Services</a><a href="about.html">About</a><a href="testimonials.html">Testimonials</a><a href="contact.html">Contact</a></nav>
+    <div class="social-icons">
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1-5.8 3.1z"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 2h-3.4v13.4a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.1a6.4 6.4 0 1 0 5.4 6.3V8.6a8 8 0 0 0 4.7 1.5V6.7a4.7 4.7 0 0 1-4.7-4.7z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 1.5c-2.9 0-3.2 0-4.3.1C3.4 1.8 1.8 3.4 1.6 7.7 1.5 8.8 1.5 9.1 1.5 12s0 3.2.1 4.3c.2 4.3 1.8 5.9 6.1 6.1 1.1.1 1.4.1 4.3.1s3.2 0 4.3-.1c4.3-.2 5.9-1.8 6.1-6.1.1-1.1.1-1.4.1-4.3s0-3.2-.1-4.3c-.2-4.3-1.8-5.9-6.1-6.1-1.1-.1-1.4-.1-4.3-.1zm0 1.9c2.8 0 3.2 0 4.3.1 3.1.1 4.1 1.2 4.3 4.3.1 1.1.1 1.4.1 4.2s0 3.2-.1 4.3c-.1 3.1-1.2 4.1-4.3 4.3-1.1.1-1.4.1-4.3.1s-3.2 0-4.2-.1c-3.1-.1-4.2-1.2-4.3-4.3-.1-1.1-.1-1.4-.1-4.3s0-3.1.1-4.2c.1-3.1 1.2-4.2 4.3-4.3 1-.1 1.4-.1 4.2-.1z"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+    </div>
   </div>
-  <div class="wrap legal">© <span id="yr"></span> Crusader Public Relations, LLC</div>
 </footer>
 
 <script>
@@ -78,25 +82,23 @@ def page(title, desc, body, current):
 """
 
 SERVICES = [
-    ("Text Messaging", "Targeted, compliant SMS and picture texts that drive engagement, turnout and fundraising.",
-     ["4¢ per message", "Federal 10DLC approval handled for you", "Free list scrubbing", "Full analytics on every send"]),
-    ("Digital Advertising", "Precision-targeted ads across search, social and display.",
-     ["Audience targeting by district and demographic", "Search, social and display placements", "Performance reporting"]),
-    ("Website Design and Development", "Mobile-friendly sites that inform, inspire and drive action.",
-     ["Campaign and business websites", "Domains, DNS and Google Workspace setup", "Email sends and tracked links"]),
-    ("OTT Television Commercials", "Audience-targeted video on streaming TV platforms.",
-     ["Spots produced in-house", "Targeted by geography and audience", "Delivery reporting"]),
-    ("Social Media", "Campaigns that keep your message in front of voters and customers.",
-     ["Content calendars and posting", "Platform setup and management", "Paid social"]),
-    ("Video Studio Filming and Editing", "Professional, high-quality video from our in-house studio.",
-     ["Filming on location or in studio", "Editing for TV, streaming and social", "Explainer and testimonial videos"]),
-    ("Graphic Design", "Eye-catching visuals from logos to mailers.",
-     ["Logos and brand kits", "Flyers, signs and mailers", "Digital and social assets"]),
-    ("Print and Direct Mail Services", "Persuasive, high-quality materials delivered to voters' hands.",
-     ["Design, print and mail in one place", "Targeted mail lists", "Door hangers, postcards and more"]),
-    ("Campaign Strategy", "A clear, results-driven plan that turns goals into action.",
-     ["Message and audience strategy", "Budget and timeline planning", "Election Day war room"]),
+    ("Voter & Customer Outreach", "Reach people directly and measure what lands.",
+     ["Text messaging: SMS and picture texts at 4¢ per message, with 10DLC approval, free list scrubbing and full analytics",
+      "Digital advertising across search, social and display",
+      "OTT and streaming TV commercials",
+      "Print and direct mail"]),
+    ("Creative & Content", "Professional work produced in-house.",
+     ["Video studio: filming and editing",
+      "Graphic design, from logos to mailers",
+      "Social media content and management"]),
+    ("Strategy & Digital", "The plan and the infrastructure behind it.",
+     ["Campaign strategy and Election Day war room",
+      "Website design and development",
+      "Domains, DNS, Google Workspace and email setup"]),
 ]
+
+CONTACT_OPTIONS = ["Text Messaging", "Digital Advertising", "OTT Television Commercials", "Print and Direct Mail",
+                   "Video, Design or Social Media", "Website, Domains or Email", "Campaign Strategy"]
 
 def services_html():
     out = []
@@ -140,7 +142,7 @@ HOME = f"""  <section class="hero">
   <section id="services" class="section">
     <div class="wrap">
       <h2>What We Do</h2>
-      <p class="section-lede">Everything a campaign, cause or business needs to reach people. Tap a service to see what's included.</p>
+      <p class="section-lede">Everything a campaign, cause or business needs to reach people. Tap a category to see what's included.</p>
       <div class="svc-grid">
 {services_html()}
       </div>
@@ -152,25 +154,17 @@ HOME = f"""  <section class="hero">
       <h2>Our Work</h2>
       <p class="section-lede">A sample of what we've produced for campaigns and organizations. Client names are removed.</p>
       <div class="work-grid">
-        <figure class="work-item work-wide">
+        <figure class="work-item">
           <div class="work-media" data-kind="Video">OTT Commercial</div>
           <figcaption><strong>Streaming TV Spot</strong> Sample caption</figcaption>
         </figure>
         <figure class="work-item">
-          <div class="work-media tall" data-kind="Picture text">Picture Text</div>
+          <div class="work-media" data-kind="Picture text">Picture Text</div>
           <figcaption><strong>Get-Out-The-Vote Text</strong> Sample caption</figcaption>
         </figure>
         <figure class="work-item">
-          <div class="work-media" data-kind="Print">Direct Mail Piece</div>
-          <figcaption><strong>Direct Mail</strong> Sample caption</figcaption>
-        </figure>
-        <figure class="work-item">
-          <div class="work-media" data-kind="Social">Social Graphic</div>
-          <figcaption><strong>Social Campaign</strong> Sample caption</figcaption>
-        </figure>
-        <figure class="work-item">
-          <div class="work-media" data-kind="Web">Campaign Website</div>
-          <figcaption><strong>Website</strong> Sample caption</figcaption>
+          <div class="work-media" data-kind="Print">Direct Mail</div>
+          <figcaption><strong>Mailer</strong> Sample caption</figcaption>
         </figure>
       </div>
       <p class="placeholder small">Placeholder tiles. Swap in anonymized videos and visuals, with names, faces and phone numbers blurred.</p>
@@ -268,7 +262,7 @@ CONTACT = page_hero("Contact", "Let's Talk About Your Goals", "Share a few detai
         <label>Campaign, Organization or Business <input name="org" autocomplete="organization"></label>
         <label>What Do You Need Help With?
           <select name="interest">
-""" + "".join(f"            <option>{s[0]}</option>\n" for s in SERVICES) + """            <option>Not sure yet</option>
+""" + "".join(f"            <option>{o}</option>\n" for o in CONTACT_OPTIONS) + """            <option>Not sure yet</option>
           </select>
         </label>
         <label>Message <textarea name="message" rows="4"></textarea></label>
@@ -286,8 +280,34 @@ PAGES = {
     "contact.html": ("Contact | Crusader Public Relations", "Book a consultation with Crusader Public Relations.", CONTACT),
 }
 
+def preview(out_path):
+    """One self-contained file holding every page, for previewing without a web server."""
+    css = open(os.path.join(ROOT, "styles.css")).read()
+    ids = {"index.html": "home", "about.html": "about", "testimonials.html": "testimonials", "contact.html": "contact"}
+    bodies = "".join(f'<div class="pv-page" id="page-{ids[fn]}">\n{b}\n</div>\n' for fn, (t, d, b) in PAGES.items())
+    html = page("Preview | Crusader Public Relations", "", bodies, "")
+    html = html.replace('<link rel="stylesheet" href="styles.css">', "<style>\n" + css + "\n.pv-page{display:none}.pv-page.on{display:block}\n</style>")
+    html = html.replace('href="index.html#', 'href="#').replace('href="index.html"', 'href="#page-home"')
+    for fn, i in ids.items():
+        html = html.replace(f'href="{fn}"', f'href="#page-{i}"')
+    router = """<script>
+  function route() {
+    const h = location.hash || '#page-home';
+    const target = document.querySelector(h);
+    const pg = h.startsWith('#page-') ? target : (target ? target.closest('.pv-page') : null) || document.getElementById('page-home');
+    document.querySelectorAll('.pv-page').forEach(p => p.classList.toggle('on', p === pg));
+    if (h.startsWith('#page-')) window.scrollTo(0, 0); else if (target) target.scrollIntoView();
+  }
+  addEventListener('hashchange', route); route();
+</script>
+</body>"""
+    html = html.replace("</body>", router)
+    open(out_path, "w").write(html)
+
 if __name__ == "__main__":
     for fn, (t, d, b) in PAGES.items():
         with open(os.path.join(ROOT, fn), "w") as f:
             f.write(page(t, d, b, fn))
+    if len(os.sys.argv) > 1:
+        preview(os.sys.argv[1])
     print("built", ", ".join(PAGES))
