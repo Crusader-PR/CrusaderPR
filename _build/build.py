@@ -113,7 +113,7 @@ SERVICES = [
 ]
 
 CONTACT_OPTIONS = ["Text Messaging", "Digital Advertising", "OTT Television Commercials", "Print and Direct Mail",
-                   "Video, Design or Social Media", "Website, Domains or Email", "Campaign Strategy"]
+                   "Video, Design or Social Media", "Website, Domains or Email", "Campaign Strategy", "Remediation or Emergency Strategy"]
 
 
 CATEGORIES = [
@@ -142,6 +142,8 @@ CATEGORIES = [
          ["Campaign, organization and business sites", "Donate, volunteer and sign-up forms", "Ongoing updates and support"]),
         ("Domains, Email and Digital Setup", "The behind-the-scenes setup that makes everything else work, done right from day one.",
          ["Domain purchase and DNS", "Google Workspace and professional email", "Email sends with tracked links"]),
+        ("Remediation and Emergency Strategy", "When a campaign or business is off track, we step in fast with a clear plan to recover and get you over the finish line.",
+         ["Rapid audit of what's working and what isn't", "Emergency outreach and messaging plan", "Hands-on consulting through the finish"]),
     ]),
 ]
 
