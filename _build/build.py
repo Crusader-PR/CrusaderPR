@@ -2,7 +2,6 @@
 import os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOGO = "https://irp.cdn-website.com/555274c7/dms3rep/multi/opt/Untitled+design+-+2024-12-01T231554.836-1920w.png"
-PHOTO = "https://irp.cdn-website.com/555274c7/dms3rep/multi/opt/pexels-photo-5673510-1920w.jpeg"
 
 NAV = [("index.html", "Home"), ("services.html", "What We Do"), ("index.html#work", "Our Work"),
        ("about.html", "About"), ("testimonials.html", "Testimonials"), ("contact.html", "Contact")]
