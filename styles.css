@@ -332,3 +332,8 @@ p, li, figcaption, blockquote, summary, .label { text-wrap: pretty; }
 .ind-icon { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: #fbeef1; }
 .ind-icon svg { width: 24px; height: 24px; fill: none; stroke: var(--red); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 760px) { .ind-grid li { flex-basis: calc(50% - .5rem); } }
+.rescue-card { margin-top: 2.4rem; display: grid; grid-template-columns: auto 1fr auto; gap: 1.4rem; align-items: center;
+  background: #1a0a0e; color: #fff; border-radius: 18px; padding: 1.6rem 1.8rem; box-shadow: 0 16px 40px rgba(40,0,10,.2); }
+.rescue-card h3 { margin: 0 0 .3rem; font-size: 1.25rem; }
+.rescue-card p { margin: 0; opacity: .8; font-size: .93rem; }
+@media (max-width: 760px) { .rescue-card { grid-template-columns: 1fr; } }
