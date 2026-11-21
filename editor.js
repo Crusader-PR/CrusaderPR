@@ -182,6 +182,7 @@
   function cleanHtml() {
     const doc = document.documentElement.cloneNode(true);
     doc.querySelectorAll(UI).forEach(n => n.remove());
+    doc.querySelectorAll('script[src*="editor.js"]').forEach(n => n.remove());
     doc.querySelectorAll("[contenteditable]").forEach(n => n.removeAttribute("contenteditable"));
     doc.querySelectorAll(".reveal").forEach(n => n.classList.remove("reveal", "in"));
     doc.querySelectorAll("details[open]").forEach(n => n.removeAttribute("open"));
