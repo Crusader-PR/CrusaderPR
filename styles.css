@@ -240,3 +240,17 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.2; margin: 0 0 .8rem;
 /* Tablet: watermark stays middle-right */
 @media (max-width: 1100px) { .hero::after { width: 420px; height: 420px; right: -40px; } }
 @media (max-width: 600px) { .hero::after { width: 300px; height: 300px; right: -90px; opacity: .1; } }
+
+/* Services page: stacked list on the left, details open to the right */
+.svc-split { display: flex; flex-direction: column; gap: .6rem; }
+@media (min-width: 861px) {
+  .svc-split { position: relative; width: 36%; min-height: 300px; }
+  .svc-split .svc { border-left-width: 4px; }
+  .svc-split .svc summary::after { content: "›"; font-size: 1.5rem; transform: none; }
+  .svc-split .svc[open] { background: var(--red); border-color: var(--red); }
+  .svc-split .svc[open] summary { color: #fff; }
+  .svc-split .svc[open] summary::after { color: #fff; transform: none; }
+  .svc-split .svc-body { position: absolute; top: 0; left: calc(100% + 2rem); width: calc(100% / .36 * .64 - 2rem); min-height: 100%;
+    background: #fff; border: 1px solid #ece2e0; border-top: 4px solid var(--red); border-radius: var(--radius); padding: 1.8rem; box-shadow: 0 10px 30px rgba(40,0,10,.07); }
+  .svc-split .svc-body p { font-size: 1.05rem; color: var(--ink); }
+}

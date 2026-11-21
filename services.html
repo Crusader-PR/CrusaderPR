@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=8e74b5c3">
+<link rel="stylesheet" href="styles.css?v=c5bcc855">
 </head>
 <body>
 
@@ -53,7 +53,7 @@
     <div class="wrap">
       <h2>Voter & Customer Outreach</h2>
       <p class="section-lede">Reach people directly and measure what lands.</p>
-      <div class="svc-grid">
+      <div class="svc-split">
           <details class="svc">
             <summary>Text Messaging</summary>
             <div class="svc-body"><p>Targeted, compliant SMS and picture texts that drive turnout, engagement and fundraising. We handle the whole process so you only approve the message.</p><ul><li>4¢ per message</li><li>Federal 10DLC registration handled for you</li><li>Free list scrubbing so you only pay for real numbers</li><li>Full analytics on every send</li></ul></div>
@@ -77,7 +77,7 @@
     <div class="wrap">
       <h2>Creative & Content</h2>
       <p class="section-lede">Professional work produced in-house.</p>
-      <div class="svc-grid">
+      <div class="svc-split">
           <details class="svc">
             <summary>Video Studio: Filming and Editing</summary>
             <div class="svc-body"><p>Our in-house studio produces professional video that captures attention, from a 15-second social clip to a full TV spot.</p><ul><li>Filming in studio or on location</li><li>Editing for TV, streaming and social</li><li>Explainer, testimonial and announcement videos</li></ul></div>
@@ -97,7 +97,7 @@
     <div class="wrap">
       <h2>Strategy & Digital</h2>
       <p class="section-lede">The plan and the infrastructure behind it.</p>
-      <div class="svc-grid">
+      <div class="svc-split">
           <details class="svc">
             <summary>Campaign Strategy</summary>
             <div class="svc-body"><p>A clear, results-driven plan that turns your goals into actions, budgets and deadlines.</p><ul><li>Message and audience strategy</li><li>Budget and timeline planning</li><li>Election Day war room</li></ul></div>
@@ -146,7 +146,16 @@
   // Service boxes start open on wide screens, collapsed on phones
   const io = 'IntersectionObserver' in window && new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
   document.querySelectorAll('.section .wrap, .proof-inner').forEach(el => { if (io) { el.classList.add('reveal'); io.observe(el); } });
-  if (window.matchMedia('(min-width: 861px)').matches) document.querySelectorAll('details.svc').forEach(d => d.open = true);
+  // Services: one open at a time per category; on wide screens the open one shows in the right-hand panel
+  const wide = window.matchMedia('(min-width: 861px)');
+  document.querySelectorAll('.svc-split').forEach(group => {
+    const items = [...group.querySelectorAll('details.svc')];
+    items.forEach(d => d.querySelector('summary').addEventListener('click', e => {
+      if (wide.matches && d.open) { e.preventDefault(); return; }
+      items.forEach(o => { if (o !== d) o.open = false; });
+    }));
+    if (wide.matches && items[0]) items[0].open = true;
+  });
 </script>
 </body>
 </html>

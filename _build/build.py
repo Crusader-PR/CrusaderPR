@@ -79,7 +79,16 @@ def page(title, desc, body, current):
   // Service boxes start open on wide screens, collapsed on phones
   const io = 'IntersectionObserver' in window && new IntersectionObserver(es => es.forEach(e => {{ if (e.isIntersecting) {{ e.target.classList.add('in'); io.unobserve(e.target); }} }}), {{ threshold: .12 }});
   document.querySelectorAll('.section .wrap, .proof-inner').forEach(el => {{ if (io) {{ el.classList.add('reveal'); io.observe(el); }} }});
-  if (window.matchMedia('(min-width: 861px)').matches) document.querySelectorAll('details.svc').forEach(d => d.open = true);
+  // Services: one open at a time per category; on wide screens the open one shows in the right-hand panel
+  const wide = window.matchMedia('(min-width: 861px)');
+  document.querySelectorAll('.svc-split').forEach(group => {{
+    const items = [...group.querySelectorAll('details.svc')];
+    items.forEach(d => d.querySelector('summary').addEventListener('click', e => {{
+      if (wide.matches && d.open) {{ e.preventDefault(); return; }}
+      items.forEach(o => {{ if (o !== d) o.open = false; }});
+    }}));
+    if (wide.matches && items[0]) items[0].open = true;
+  }});
 </script>
 </body>
 </html>
@@ -159,7 +168,7 @@ def services_page_html():
     <div class="wrap">
       <h2>{name}</h2>
       <p class="section-lede">{lede}</p>
-      <div class="svc-grid">{cards}
+      <div class="svc-split">{cards}
       </div>
     </div>
   </section>""")
