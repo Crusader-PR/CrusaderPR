@@ -25,9 +25,10 @@
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav id="nav" class="nav">
       <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
       <a href="#texting">Texting</a>
       <a href="#about">About</a>
-      <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+      <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
     </nav>
   </div>
 </header>
@@ -40,7 +41,7 @@
       <h1>Leading the charge in political campaign communication.</h1>
       <p class="lede">From strategy to execution, we build the outreach, creative and digital presence that help candidates and causes connect, engage and win.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+        <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
         <a href="#services" class="btn btn-ghost">See our services</a>
       </div>
     </div>
@@ -93,12 +94,43 @@
     </div>
   </section>
 
+  <section id="work" class="section section-tint">
+    <div class="wrap">
+      <h2>Our work</h2>
+      <p class="section-lede">A sample of what we've produced for campaigns and organizations. Client names are removed.</p>
+      <div class="work-grid">
+        <figure class="work-item work-wide">
+          <div class="work-media" data-kind="Video">OTT commercial</div>
+          <figcaption><strong>Streaming TV spot</strong> 30-second ad for a statewide race</figcaption>
+        </figure>
+        <figure class="work-item">
+          <div class="work-media tall" data-kind="Picture text">Picture text</div>
+          <figcaption><strong>Get-out-the-vote text</strong> Election-week picture message</figcaption>
+        </figure>
+        <figure class="work-item">
+          <div class="work-media" data-kind="Print">Direct mail piece</div>
+          <figcaption><strong>Direct mail</strong> Persuasion mailer</figcaption>
+        </figure>
+        <figure class="work-item">
+          <div class="work-media" data-kind="Social">Social graphic</div>
+          <figcaption><strong>Social campaign</strong> Launch-week graphics</figcaption>
+        </figure>
+        <figure class="work-item">
+          <div class="work-media" data-kind="Web">Campaign website</div>
+          <figcaption><strong>Website</strong> Candidate site with donate and volunteer sign-up</figcaption>
+        </figure>
+      </div>
+      <p class="placeholder small">Placeholder tiles. Swap in anonymized videos and visuals from Brian and Shirah, with names, faces and phone numbers blurred.</p>
+    </div>
+  </section>
+
   <section id="texting" class="section section-dark">
     <div class="wrap split">
       <div>
         <p class="eyebrow">Text messaging</p>
         <h2>4¢ per message. We do all the work.</h2>
         <p>We get you approved to send, clean your list for free, send every message and report back on how each send performed.</p>
+        <a href="contact.html" class="btn btn-primary">Start a text campaign</a>
       </div>
       <ol class="steps">
         <li><strong>Get approved.</strong> We handle federal 10DLC registration.</li>
@@ -116,20 +148,13 @@
     </div>
   </section>
 
-  <section id="contact" class="section section-tint">
-    <div class="wrap split">
+  <section class="cta-band">
+    <div class="wrap cta-inner">
       <div>
         <h2>Ready to make an impact?</h2>
         <p>Tell us about your campaign or organization and we'll set up a consultation.</p>
       </div>
-      <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.form-note').hidden=false;">
-        <label>Name <input name="name" required autocomplete="name"></label>
-        <label>Email <input name="email" type="email" required autocomplete="email"></label>
-        <label>Phone <input name="phone" type="tel" autocomplete="tel"></label>
-        <label>Message <textarea name="message" rows="4"></textarea></label>
-        <button class="btn btn-primary" type="submit">Send</button>
-        <p class="form-note" hidden>Preview only. This form isn't connected yet.</p>
-      </form>
+      <a href="contact.html" class="btn btn-light">Book a Consultation</a>
     </div>
   </section>
 
@@ -138,7 +163,7 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <p>© <span id="yr"></span> Crusader Public Relations, LLC</p>
-    <nav><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <nav><a href="#services">Services</a><a href="#about">About</a><a href="contact.html">Contact</a></nav>
   </div>
 </footer>
 

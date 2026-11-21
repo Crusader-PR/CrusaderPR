@@ -91,3 +91,37 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.2; margin: 0 0 .8rem;
   .proof-inner { grid-template-columns: 1fr; gap: 1.2rem; }
   .hero-inner { padding: 4.5rem 0 4rem; margin: 0 auto; }
 }
+
+/* Our work */
+.work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.work-item { margin: 0; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 18px rgba(0,40,80,.07); }
+.work-wide { grid-column: span 2; }
+.work-media { position: relative; aspect-ratio: 16/9; display: grid; place-items: center; color: #fff; font-weight: 700; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 60%, var(--red) 140%); }
+.work-media.tall { aspect-ratio: auto; height: 100%; min-height: 220px; }
+.work-media::before { content: attr(data-kind); position: absolute; top: .8rem; left: .8rem; background: rgba(255,255,255,.18); padding: .2rem .6rem; border-radius: 999px; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+.work-media video, .work-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.work-item figcaption { padding: .9rem 1.1rem 1.1rem; font-size: .9rem; color: var(--muted); }
+.work-item figcaption strong { display: block; color: var(--ink); }
+.placeholder.small { margin-top: 1.4rem; font-size: .85rem; padding: .9rem 1.1rem; }
+
+/* CTA band */
+.cta-band { background: var(--red); color: #fff; }
+.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 3.5rem 0; flex-wrap: wrap; }
+.cta-inner h2 { margin-bottom: .3rem; }
+.cta-inner p { margin: 0; opacity: .92; }
+.btn-light { background: #fff; color: var(--red); }
+.btn-light:hover { background: #ffe9ee; }
+.section-dark .btn { margin-top: 1rem; }
+
+/* Contact page */
+.page-hero { background: var(--navy); color: #fff; }
+.page-hero .wrap { padding: 4rem 0 3.5rem; }
+.page-hero .eyebrow { color: #ff8fa6; }
+.steps.dark li { color: var(--ink); }
+.contact-form select { font: inherit; padding: .7rem .8rem; border: 1px solid #cfd3dc; border-radius: 8px; background: #fff; }
+
+@media (max-width: 860px) {
+  .work-grid { grid-template-columns: 1fr; }
+  .work-wide { grid-column: auto; }
+  .work-media.tall { aspect-ratio: 16/9; height: auto; min-height: 0; }
+}
