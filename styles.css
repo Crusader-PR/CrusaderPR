@@ -254,3 +254,9 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.2; margin: 0 0 .8rem;
     background: #fff; border: 1px solid #ece2e0; border-top: 4px solid var(--red); border-radius: var(--radius); padding: 1.8rem; box-shadow: 0 10px 30px rgba(40,0,10,.07); }
   .svc-split .svc-body p { font-size: 1.05rem; color: var(--ink); }
 }
+
+/* No single words stranded on a line */
+h1, h2, h3, .lede, .cta-inner h2 { text-wrap: balance; }
+p, li, figcaption, blockquote, summary, .label { text-wrap: pretty; }
+.partner-link { color: #c8cfdb !important; margin-left: .8rem; opacity: .7; }
+.partner-link:hover { opacity: 1; }

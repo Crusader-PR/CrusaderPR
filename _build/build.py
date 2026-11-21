@@ -7,6 +7,7 @@ NAV = [("index.html", "Home"), ("services.html", "What We Do"), ("index.html#wor
        ("about.html", "About"), ("testimonials.html", "Testimonials"), ("contact.html", "Contact")]
 
 import hashlib
+ED_V = hashlib.md5(open(os.path.join(ROOT, "editor.js"), "rb").read()).hexdigest()[:8]
 CSS_V = hashlib.md5(open(os.path.join(ROOT, "styles.css"), "rb").read()).hexdigest()[:8]
 
 def page(title, desc, body, current):
@@ -58,7 +59,7 @@ def page(title, desc, body, current):
   <div class="wrap footer-inner">
     <div>
       <p class="footer-brand">Crusader Public Relations, LLC</p>
-      <p class="legal-line">© <span id="yr"></span> Crusader Public Relations, LLC. All rights reserved.</p>
+      <p class="legal-line">© <span id="yr"></span> Crusader Public Relations, LLC. All rights reserved. <a class="partner-link" href="https://claude.ai/artifact/M4aV4PGc3pQFeMHpVTDafT" rel="nofollow">Partner Login</a></p>
     </div>
     <div class="social-icons">
         <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1-5.8 3.1z"/></svg></a>
@@ -70,6 +71,7 @@ def page(title, desc, body, current):
 </footer>
 
 <script>
+  if (location.hash === '#edit') {{ const s = document.createElement('script'); s.src = 'editor.js?v={ED_V}'; document.body.appendChild(s); }}
   document.getElementById('yr').textContent = new Date().getFullYear();
   const btn = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
   const setMenu = open => {{ menu.hidden = !open; btn.setAttribute('aria-expanded', open); btn.classList.toggle('open', open); }};
@@ -378,10 +380,27 @@ def preview(out_path):
     html = html.replace("</body>", router)
     open(out_path, "w").write(html)
 
+def existing_main(fn):
+    """Pages are edited live through editor.js, so the published <main> is the source of truth.
+    Only the shared head, header and footer are regenerated. Pass --reset to rebuild a page from the template."""
+    path = os.path.join(ROOT, fn)
+    if "--reset" in os.sys.argv or not os.path.exists(path):
+        return None
+    html = open(path).read()
+    a, b = html.find("<main>"), html.find("</main>")
+    return html[a + len("<main>"):b].strip("\n") if a != -1 and b != -1 else None
+
+for _fn in list(PAGES):
+    _m = existing_main(_fn)
+    if _m is not None:
+        _t, _d, _ = PAGES[_fn]
+        PAGES[_fn] = (_t, _d, _m)
+
 if __name__ == "__main__":
     for fn, (t, d, b) in PAGES.items():
         with open(os.path.join(ROOT, fn), "w") as f:
             f.write(page(t, d, b, fn))
-    if len(os.sys.argv) > 1:
-        preview(os.sys.argv[1])
+    out = [a for a in os.sys.argv[1:] if not a.startswith("--")]
+    if out:
+        preview(out[0])
     print("built", ", ".join(PAGES))

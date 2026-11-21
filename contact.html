@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=c5bcc855">
+<link rel="stylesheet" href="styles.css?v=513d6bb5">
 </head>
 <body>
 
@@ -88,7 +88,7 @@
   <div class="wrap footer-inner">
     <div>
       <p class="footer-brand">Crusader Public Relations, LLC</p>
-      <p class="legal-line">© <span id="yr"></span> Crusader Public Relations, LLC. All rights reserved.</p>
+      <p class="legal-line">© <span id="yr"></span> Crusader Public Relations, LLC. All rights reserved. <a class="partner-link" href="https://claude.ai/artifact/M4aV4PGc3pQFeMHpVTDafT" rel="nofollow">Partner Login</a></p>
     </div>
     <div class="social-icons">
         <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1-5.8 3.1z"/></svg></a>
@@ -100,6 +100,7 @@
 </footer>
 
 <script>
+  if (location.hash === '#edit') { const s = document.createElement('script'); s.src = 'editor.js?v=f49f50c0'; document.body.appendChild(s); }
   document.getElementById('yr').textContent = new Date().getFullYear();
   const btn = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
   const setMenu = open => { menu.hidden = !open; btn.setAttribute('aria-expanded', open); btn.classList.toggle('open', open); };
