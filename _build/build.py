@@ -141,7 +141,7 @@ CATEGORIES = [
     ]),
     ("strategy", "Strategy & Digital", "The plan and the infrastructure behind it.", [
         ("Campaign Strategy", "A clear, results-driven plan that turns your goals into actions, budgets and deadlines.",
-         ["Message and audience strategy", "Budget and timeline planning"]),
+         ["Message and audience strategy", "Budget and timeline planning", "Election Day Operations (EDO)"]),
         ("Website Design and Development", "Mobile-friendly websites that build trust and turn visitors into donors, volunteers and customers.",
          ["Campaign, organization and business sites", "Donate, volunteer and sign-up forms", "Ongoing updates and support"]),
         ("Domains, Email and Digital Setup", "The behind-the-scenes setup that makes everything else work, done right from day one.",
